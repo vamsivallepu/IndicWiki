@@ -1,0 +1,68 @@
+{%- macro infobox(name_telugu, paradigm_telugu, family_telugu, designedBy_telugu, year_telugu, typingDiscipline_telugu, os_telugu, extension, developer_telugu, platform_telugu, license_telugu, influenced_telugu) -%}
+
+{{'{{Infobox programming language'}}
+| name = {{company_name_tel}}
+{%- if year_telugu != 'NaN' -%}
+| year = {{year_telugu}}
+{%- endif -%}
+{%- if family_telugu != 'NaN' -%}
+| family = {{family_telugu}}
+{%- endif -%}
+{%- if designedBy_telugu != 'NaN' -%}
+| designer = {{designedBy_telugu}}
+{%- endif -%}
+# {%- if paradigm_telugu != 'NaN' -%}
+# | paradigm = {{paradigm_telugu}}
+# {%- endif -%}
+{%- if typingDiscipline_telugu != 'NaN' -%}
+| typing = {{typingDiscipline_telugu}}
+{%- endif -%}
+{%- if os_telugu != 'NaN' -%}
+| operating system = {{os_telugu}}
+{%- endif -%}
+{%- if extension != 'NaN' -%}
+| file ext = {{extension}}
+{%- endif -%}
+{%- if developer_telugu != 'NaN' -%}
+| developer = {{developer_telugu}}
+{%- endif -%}
+{%- if platform_telugu != 'NaN' -%}
+| platform = {{platform_telugu}}
+{%- endif -%}
+{%- if license_telugu != 'NaN' -%}
+| license = {{license_telugu}}
+{%- endif -%}
+{%- if influenced_telugu != 'NaN' -%}
+| influenced by = {{influenced_telugu}}
+{%- endif -%}
+}}
+
+{%- endmacro -%}
+
+{%- macro overview(name_telugu, paradigm_telugu, family_telugu, designedBy_telugu, year_telugu, typingDiscipline_telugu, os_telugu, extension, developer_telugu, platform_telugu, license_telugu, influenced_telugu, category) -%}
+
+{%- if name_telugu!='NaN' -%}
+{{name_telugu}} అనేది ఒక ప్రోగ్రామింగ్ భాష.
+{%- endif -%}
+{%- set year_line=[
+					    "ఈ భాష మొదట "+ {{year_telugu} +" లో విడుదల అయ్యింది.",
+					    {{year_telugu}} +"లో మొదటిగా ఈ భాష విడుదల అయ్యింది."
+					] | random
+	-%}
+{%- if year_telugu!='NaN' -%}
+{{" "}}{{year_line}} 
+{%- endif-%}
+
+
+{%- set designer_line=[
+                        {{name_telugu}}+"నీ "+{{designedBy_telugu}}+" అభివృద్ధి చేసారు.",
+                        {{designedBy_telugu}}+" ఈ భాషని అభివృద్ధి చేసారు."
+                        ] | random
+ -%}
+
+{%- if designedBy_telugu!='NaN' -%}
+{{" "}}{{designer_line}} 
+{%- endif-%}
+
+
+
