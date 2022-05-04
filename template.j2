@@ -64,5 +64,13 @@
 {{" "}}{{designer_line}} 
 {%- endif-%}
 
+{%- if developer_telugu!="NaN" -%}
+{{" "}}{{name_telugu}} {{developer_telugu}}+" ద్వారా నిర్వహించబడుతుంది.".
+{%- endif -%}
 
+{%- set family_line=[
+    "ఈ భాష "+{{family_telugu}}+" కి చెందిన భాష.",
+    {{family_telugu}}+"ఫామిలీ భాషలు లో ఇది ఒకటి"
+] | random 
+-%}
 
