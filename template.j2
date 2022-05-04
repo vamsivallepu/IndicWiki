@@ -69,8 +69,16 @@
 {%- endif -%}
 
 {%- set family_line=[
-    "ఈ భాష "+{{family_telugu}}+" కి చెందిన భాష.",
-    {{family_telugu}}+"ఫామిలీ భాషలు లో ఇది ఒకటి"
+    "ఈ భాష "+{{family_telugu}}+" కుటుంబానికి కి చెందిన భాష.",
+    {{family_telugu}}+"కుటుంబ భాషలు లో ఇది ఒకటి"
 ] | random 
 -%}
+
+{%- if family_telugu!='NaN' -%}
+{{" "}}{{family_line}} 
+{%- endif -%}
+
+{%-set platform_line=[
+    
+] -%}
 
