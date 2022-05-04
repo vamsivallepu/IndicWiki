@@ -39,7 +39,7 @@
 
 {%- endmacro -%}
 
-{%- macro overview(name_telugu, paradigm_telugu, family_telugu, designedBy_telugu, year_telugu, typingDiscipline_telugu, os_telugu, extension, developer_telugu, platform_telugu, license_telugu, influenced_telugu, category) -%}
+{%- macro article(name_telugu, paradigm_telugu, family_telugu, designedBy_telugu, year_telugu, typingDiscipline_telugu, os_telugu, extension, developer_telugu, platform_telugu, license_telugu, influenced_telugu) -%}
 
 {%- if name_telugu!='NaN' -%}
 {{name_telugu}} అనేది ఒక ప్రోగ్రామింగ్ భాష.
@@ -79,6 +79,53 @@
 {%- endif -%}
 
 {%-set platform_line=[
-    
-] -%}
+    "ఇది "+{{platform_telugu}}+" ప్లాట్‌ఫామ్‌లలో పనిచేస్తుంది.",
+    {{platform_telugu}}+" ప్లాటుఫార్మ్స్ లో ఈ భాష పనిచేస్తుంది."
+] | random 
+-%}
 
+{%- if platform_telugu!='NaN' -%}
+{{" "}}{{platform_line}} 
+{%- endif -%}
+
+{%-set os_line=[
+    "ఈ భాష "+{{os_telugu}}+" ఆపరేటింగ్ సిస్టమ్స్ లో పనిచేస్తుంది.",
+    {{platform_telugu}}+" ఆపరేటింగ్ సిస్టమ్స్ లో "+ {{name_telugu}} +" పనిచేస్తుంది."
+] | random 
+-%}
+
+{%- if os_telugu!='NaN' -%}
+{{" "}}{{os_line}} 
+{%- endif -%}
+
+{%- set typing_line=[
+    "ఇది "+{{typingDiscipline_telugu}}+" టైపింగ్ భాష.",
+    "ఈ భాష "+{{typingDiscipline_telugu}}+" టైపింగ్ క్రమశిక్షణల్ని అనుసరిస్తుంది."
+] | random 
+-%}
+    
+{%- if typingDiscipline_telugu!='NaN' -%}
+{{" "}}{{typing_line}} 
+{%- endif -%}
+
+{%- if extension!="NaN" -%}
+{{" "}}{{extension}}+" ఈ భాష యొక్క ఫైల్ పొడిగింపులు."
+{%- endif -%}
+
+{%- set influencedBy_line=[
+    "ఈ భాష "+{{influencedBy_telugu}}+" ద్వారా ప్రభావితమైంది.",
+    {{influencedBy_telugu}}+" భాషలు, ఈ భాషని ప్రభావితం చేసాయి."
+] | random
+-%}
+
+{%- if influencedBy_telugu!='NaN' -%}
+{{" "}}{{influencedBy_line}} 
+{%- endif -%}
+
+{%- if license_telugu!="NaN" -%}
+{{" "}}"ఈ భాష "+{{license_telugu}}+" కింద లైసెన్స్ పొందింది."
+{%- endif -%}
+
+{%- endmacro -%}
+
+{{- article() -}}
