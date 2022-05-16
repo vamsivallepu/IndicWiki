@@ -1,7 +1,7 @@
 {%- macro infobox(name_telugu, paradigm_telugu, family_telugu, designedBy_telugu, year_telugu, typingDiscipline_telugu, os_telugu, extension, developer_telugu, platform_telugu, license_telugu, influenced_telugu) -%}
 
 {{'{{Infobox programming language'}}
-| name = {{company_name_tel}}
+| name = {{name_telugu}}
 {%- if year_telugu != 'NaN' -%}
 | year = {{year_telugu}}
 {%- endif -%}
@@ -35,96 +35,110 @@
 {%- if influenced_telugu != 'NaN' -%}
 | influenced by = {{influenced_telugu}}
 {%- endif -%}
-
+{{'}}'}}
 {%- endmacro -%}
 
 {%- macro article(name_telugu, paradigm_telugu, family_telugu, designedBy_telugu, year_telugu, typingDiscipline_telugu, os_telugu, extension, developer_telugu, platform_telugu, license_telugu, influenced_telugu) -%}
 
-{%- if name_telugu!='NaN' -%}
-{{name_telugu}} అనేది ఒక ప్రోగ్రామింగ్ భాష.
-{%- endif -%}
-{%- set year_line=[
-					    "ఈ భాష మొదట "+ {{year_telugu}} +" లో విడుదల అయ్యింది.",
-					    {{year_telugu}} +"లో మొదటిగా ఈ భాష విడుదల అయ్యింది."
-					] | random
-	-%}
-{%- if year_telugu!='NaN' -%}
-{{" "}}{{year_line}} 
-{%- endif-%}
-
-
-{%- set designer_line=[
-                        {{name_telugu}}+"నీ "+{{designedBy_telugu}}+" అభివృద్ధి చేసారు.",
-                        {{designedBy_telugu}}+" ఈ భాషని అభివృద్ధి చేసారు."
+    {%- if name_telugu!='NaN' -%}
+    {{name_telugu}} అనేది ఒక ప్రోగ్రామింగ్ భాష.
+    {%- endif -%}
+    {%- set year_line=[
+                            "ఈ ప్రోగ్రామింగ్ భాష మొదట "+ year_telugu +" లో విడుదల అయ్యింది.",
+                            year_telugu+"లో మొదటిగా ఈ ప్రోగ్రామింగ్ భాష విడుదల అయ్యింది."
                         ] | random
- -%}
+        -%}
+    {%- if year_telugu!='NaN' -%}
+    {{" "}}{{year_line}} 
+    {%- endif-%}
 
-{%- if designedBy_telugu!='NaN' -%}
-{{" "}}{{designer_line}} 
-{%- endif-%}
+    {%- set designer_line=[
+                            name_telugu+"నీ "+designedBy_telugu+" అభివృద్ధి చేసారు.",
+                            designedBy_telugu+" ఈ భాషని అభివృద్ధి చేసారు."
+                            ] | random
+    -%}
 
-{%- if developer_telugu!="NaN" -%}
-{{" "}}{{name_telugu}} {{developer_telugu}}+" ద్వారా నిర్వహించబడుతుంది.".
-{%- endif -%}
+    {%- if designedBy_telugu!='NaN' -%}
+    {{" "}}{{designer_line}} 
+    {%- endif-%}
 
-{%- set family_line=[
-    "ఈ భాష "+{{family_telugu}}+" కుటుంబానికి కి చెందిన భాష.",
-    {{family_telugu}}+"కుటుంబ భాషలు లో ఇది ఒకటి"
-] | random 
--%}
+    {%- set developer_line=[
+                            name_telugu+" "+developer_telugu+" ద్వారా నిర్వహించబడుతుంది.",
+                            developer_telugu + " ఈ భాషని నీ  నిర్వహిస్తున్నారు." 
+    ] | random
+    -%}
 
-{%- if family_telugu!='NaN' -%}
-{{" "}}{{family_line}} 
-{%- endif -%}
+    {%- if developer_telugu!="NaN" -%}
+    {{" "}}{{developer_line}}
+    {%- endif -%}
 
-{%-set platform_line=[
-    "ఇది "+{{platform_telugu}}+" ప్లాట్‌ఫామ్‌లలో పనిచేస్తుంది.",
-    {{platform_telugu}}+" ప్లాటుఫార్మ్స్ లో ఈ భాష పనిచేస్తుంది."
-] | random 
--%}
+    {%- set family_line=[
+        "ఈ భాష "+family_telugu+" కుటుంబానికి కి చెందిన భాష.",
+        family_telugu+" కుటుంబ భాషలు లో ఇది ఒకటి"
+    ] | random 
+    -%}
 
-{%- if platform_telugu!='NaN' -%}
-{{" "}}{{platform_line}} 
-{%- endif -%}
+    {%- if family_telugu!='NaN' -%}
+    {{" "}}{{family_line}} 
+    {%- endif -%}
 
-{%-set os_line=[
-    "ఈ భాష "+{{os_telugu}}+" ఆపరేటింగ్ సిస్టమ్స్ లో పనిచేస్తుంది.",
-    {{os_telugu}}+" ఆపరేటింగ్ సిస్టమ్స్ లో "+ {{name_telugu}} +" పనిచేస్తుంది."
-] | random 
--%}
+    {%-set platform_line=[
+        "ఇది "+platform_telugu+" ప్లాట్‌ఫామ్‌లలో పనిచేస్తుంది.",
+        platform_telugu+" ప్లాటుఫార్మ్స్ లో ఈ భాష పనిచేస్తుంది."
+    ] | random 
+    -%}
 
-{%- if os_telugu!='NaN' -%}
-{{" "}}{{os_line}} 
-{%- endif -%}
+    {%- if platform_telugu!='NaN' -%}
+    {{" "}}{{platform_line}} 
+    {%- endif -%}
 
-{%- set typing_line=[
-    "ఇది "+{{typingDiscipline_telugu}}+" టైపింగ్ భాష.",
-    "ఈ భాష "+{{typingDiscipline_telugu}}+" టైపింగ్ క్రమశిక్షణల్ని అనుసరిస్తుంది."
-] | random 
--%}
+    {%-set os_line=[
+        "ఈ భాష "+os_telugu+" ఆపరేటింగ్ సిస్టమ్స్ లో పనిచేస్తుంది.",
+        os_telugu+" ఆపరేటింగ్ సిస్టమ్స్ లో "+ name_telugu +" పనిచేస్తుంది."
+    ] | random 
+    -%}
+
+    {%- if os_telugu!='NaN' -%}
+    {{" "}}{{os_line}} 
+    {%- endif -%}
+
+    {%- set typing_line=[
+        "ఇది "+typingDiscipline_telugu+" టైపింగ్ భాష.",
+        "ఈ భాష "+typingDiscipline_telugu+" టైపింగ్ క్రమశిక్షణల్ని అనుసరిస్తుంది."
+    ] | random 
+    -%}
+        
+    {%- if typingDiscipline_telugu!='NaN' -%}
+    {{" "}}{{typing_line}} 
+    {%- endif -%}
     
-{%- if typingDiscipline_telugu!='NaN' -%}
-{{" "}}{{typing_line}} 
-{%- endif -%}
+    {%- set extension_line=
+        extension+" ఈ భాష యొక్క ఫైల్ అంత్యాక్షరాలు."
+    -%}
 
-{%- if extension!="NaN" -%}
-{{" "}}{{extension}}+" ఈ భాష యొక్క ఫైల్ పొడిగింపులు."
-{%- endif -%}
+    {%- if extension!="NaN" -%}
+    {{" "}}{{extension_line}}
+    {%- endif -%}
 
-{%- set influencedBy_line=[
-    "ఈ భాష "+{{influencedBy_telugu}}+" ద్వారా ప్రభావితమైంది.",
-    {{influencedBy_telugu}}+" భాషలు, ఈ భాషని ప్రభావితం చేసాయి."
-] | random
--%}
+    {%- set influenced_line=[
+        "ఈ భాష "+influencedBy_telugu+" ద్వారా ప్రభావితమైంది.",
+        influencedBy_telugu	+" భాషలు, ఈ భాషని ప్రభావితం చేసాయి."
+    ] | random
+    -%}
 
-{%- if influencedBy_telugu!='NaN' -%}
-{{" "}}{{influencedBy_line}} 
-{%- endif -%}
+    {%- if influencedBy_telugu !='NaN' -%}
+    {{" "}}{{influenced_line}} 
+    {%- endif -%}
 
-{%- if license_telugu!="NaN" -%}
-{{" "}}"ఈ భాష "+{{license_telugu}}+" కింద లైసెన్స్ పొందింది."
-{%- endif -%}
+    {%- set license_line=
+        "ఈ భాష "+license_telugu+" కింద లైసెన్స్ పొందింది."
+    -%}    
+
+    {%- if license_telugu!="NaN" -%}
+    {{" "}}{{license_line}}
+    {%- endif -%}
 
 {%- endmacro -%}
 
-{{- article() -}}
+{{- infobox(name_telugu, paradigm_telugu, family_telugu, designedBy_telugu, year_telugu, typingDiscipline_telugu, os_telugu, extension, developer_telugu, platform_telugu, license_telugu, influenced_telugu) -}}
+{{- article(name_telugu, paradigm_telugu, family_telugu, designedBy_telugu, year_telugu, typingDiscipline_telugu, os_telugu, extension, developer_telugu, platform_telugu, license_telugu, influenced_telugu ) -}}

@@ -1,0 +1,65 @@
+{%- macro infobox(name_telugu, developer_telugu, year_telugu) -%}
+{{'{{Infobox programming language'}}
+| name = {{name_telugu}}
+{%- if year_telugu != 'NaN' -%}
+| year = {{year_telugu}}
+{%- endif -%}
+{%- if developer_telugu != 'NaN' -%}
+| designer = {{developer_telugu}}
+{%- endif -%}
+{{'}}'}}
+{%- endmacro -%}
+
+{%- macro article(name_telugu, developer_telugu, year_telugu, country_telugu, application_telugu, category_telugu) -%}
+
+{%- if name_telugu!='NaN' -%}
+    {{name_telugu}} అనేది ఒక ప్రోగ్రామింగ్ భాష.
+    {%- endif -%}
+{%- set year_line=[
+                             "ఈ ప్రోగ్రామింగ్ భాష మొదట "+ year_telugu +" లో విడుదల అయ్యింది.",
+                            year_telugu+"లో మొదటిగా ఈ ప్రోగ్రామింగ్ భాష విడుదల అయ్యింది."
+                    ] | random
+        -%}
+    {%- if year_telugu!='NaN' -%}
+    {{" "}}{{year_line}} 
+    {%- endif-%}
+
+{%- set country_line=[
+                            "ఈ భాష "+country_telugu+"కు చెందినది.",
+                            "ఈ భాష "+country_telugu+"లో అభివృద్ధి చేయబడింది"
+                    ] | random
+        -%}
+    {%- if country_telugu!='NaN' -%}
+    {{" "}}{{country_line}} 
+    {%- endif-%}
+
+{%- set developer_line =[
+                            name_telugu+"నీ "+developer_telugu+" అభివృద్ధి చేసారు.",
+                            developer_telugu+" ఈ భాషని అభివృద్ధి చేసారు."
+] | random
+-%}
+
+{%- if developer_telugu!='NaN' -%}
+    {{" "}}{{developer_line}} 
+    {%- endif-%}
+
+{%- set category_line=[
+                            "ఈ భాష "+category_telugu+"వర్గం కు చెందినది.", 
+                            name_telugu+" "+category_telugu+" వర్గం కు చెందినది."
+                    ] | random
+        -%}
+
+{%- if category_telugu!='NaN' -%}
+    {{" "}}{{category_line}} 
+    {%- endif-%}
+
+{%- set application_line="ఈ భాష యొక్క అనువర్తనాలు "+application_telugu+"." -%}
+
+    {%- if application_telugu!='NaN' -%}
+    {{" "}}{{application_line}} 
+    {%- endif-%}
+
+{%- endmacro -%}
+
+{{- infobox(name_telugu, developer_telugu, year_telugu) -}}
+{{- article(name_telugu, developer_telugu, year_telugu, country_telugu, application_telugu, category_telugu) -}}
